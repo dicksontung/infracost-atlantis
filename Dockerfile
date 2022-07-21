@@ -11,6 +11,8 @@ RUN \
   curl -s -L "https://infracost.io/downloads/$cli_version/infracost-linux-amd64.tar.gz" | tar xz -C /tmp && \
   mv /tmp/infracost-linux-amd64 /usr/bin/infracost
 
-COPY extra/gitlab-approval-linux-amd64 /usr/local/bin/gitlab-approval
+RUN \
+  curl -s -L "https://github.com/dicksontung/gitlab-approval/releases/download/v1.0.1/gitlab-approval-linux-amd64.tar.gz" | tar xz -C /tmp && \
+  mv /tmp/gitlab-approval-linux-amd64 /usr/local/bin/gitlab-approval
 
 RUN apk --update --no-cache add tzdata
